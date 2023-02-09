@@ -3,10 +3,23 @@
 @tailwind utilities;
 
 
+
+body {
+    font-family: "Noto Naskh Arabic", sans-serif;
+}
+
 .container {
-    max-width: 1400px;
+    max-width: 1200px;
     margin: auto;
-    @media screen and (max-width: 1400px) {
+    @media screen and (max-width: 1200px) {
         padding: 0 20px;
+    }
+}
+
+.card {
+    @apply border p-6 border-b-0;
+
+    &:last-child {
+        @apply border-b;
     }
 }

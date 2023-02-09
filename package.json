@@ -12,6 +12,7 @@
     "buildexport": "next build && next export"
   },
   "dependencies": {
+    "@fontsource/noto-naskh-arabic": "^4.5.12",
     "autoprefixer": "^10.4.13",
     "next": "^13.1.2",
     "postcss": "^8.4.21",

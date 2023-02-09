@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@fontsource/noto-naskh-arabic@^4.5.12":
+  version "4.5.12"
+  resolved "https://registry.yarnpkg.com/@fontsource/noto-naskh-arabic/-/noto-naskh-arabic-4.5.12.tgz#e7a7818d2140d19295d1d1a43ebaae0d0a39faaa"
+  integrity sha512-9gfdKf6Yo4I+zNQWOqH8pbUSkGN9SMAvuqgIdaI2x0qjQZCAgYJylrsGDB4pdbxpaoQZ6LCNcDUHMt7p5mMF/g==
+
 "@next/env@13.1.2":
   version "13.1.2"
   resolved "https://registry.yarnpkg.com/@next/env/-/env-13.1.2.tgz#4f13e3e9d44bb17fdc1d4543827459097035f10f"

@@ -1,4 +1,5 @@
 import {Fragment} from "react";
+import "@fontsource/noto-naskh-arabic";
 import "../styles/app.scss"
 
 const App = ({Component, pageProps}) => {
