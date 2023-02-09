@@ -1,13 +1,9 @@
 import HomeLayout from "../../layouts/home";
-import {useRouter} from "next/router";
 import surahs from "../../data/suras";
 import {useState} from "react";
 import {useSettingsContext} from "../../context/settings";
 
-const Surah = () => {
-    const {query} = useRouter()
-    const surah = surahs?.find(surah => surah.id === +query?.id)
-
+const Surah = ({surah}) => {
     return (
         <div className="container py-8">
             {surah && surah.verses?.map((verse, index) => <Verse verse={verse} key={index}/>)}
@@ -70,4 +66,20 @@ const Verse = ({verse}) => {
             </div>
         </div>
     )
+}
+
+export async function getStaticProps({ params: { id } }) {
+    const surah = surahs?.find(surah => surah.id === +id)
+    return { props: {surah} };
+}
+
+export async function getStaticPaths() {
+    const paths = surahs.map((c) => {
+        return { params: { id: c.id.toString() } }; // Route is something like "this-is-my-post"
+    });
+
+    return {
+        paths,
+        fallback: false,
+    };
 }
