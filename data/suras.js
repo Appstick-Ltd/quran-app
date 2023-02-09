@@ -1,6 +1,7 @@
 import fatiha from "./verses/fatiha";
 import baqara from "./verses/baqara";
 import imran from "./verses/imran";
+import nisa from "./verses/nisa";
 
 const surahs = [
     {
@@ -17,6 +18,11 @@ const surahs = [
         id: 3,
         name: "Aal i Imraan",
         verses: imran
+    },
+    {
+        id: 4,
+        name: "An Nisaa",
+        verses: nisa
     }
 ]
 
