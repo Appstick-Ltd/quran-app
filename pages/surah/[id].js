@@ -1,12 +1,28 @@
 import HomeLayout from "../../layouts/home";
 import surahs from "../../data/suras";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {useSettingsContext} from "../../context/settings";
+import axios from "axios";
 
 const Surah = ({surah}) => {
+    const [verses, setVerses] = useState([])
+    // useEffect(() => {
+    //     let find = surahs?.find(d => d.id === surah.id)
+    //     console.log(JSON.stringify(find.verses))
+    // }, [])
+
+    useEffect(() => {
+        axios.get(`/surah/${surah.id}.json`).then(({data}) => {
+            setVerses(data)
+        })
+    }, [])
+
     return (
         <div className="container py-8">
-            {surah && surah.verses?.map((verse, index) => <Verse verse={verse} key={index}/>)}
+            <div className="mb-4">
+                <h3 className="text-2xl text-gray-700">{surah?.name}</h3>
+            </div>
+            {verses?.map((verse, index) => <Verse verse={verse} key={index}/>)}
         </div>
     )
 }
@@ -68,14 +84,21 @@ const Verse = ({verse}) => {
     )
 }
 
-export async function getStaticProps({ params: { id } }) {
+export async function getStaticProps({params: {id}}) {
     const surah = surahs?.find(surah => surah.id === +id)
-    return { props: {surah} };
+    return {
+        props: {
+            surah: {
+                id: surah.id,
+                name: surah.name,
+            }
+        }
+    };
 }
 
 export async function getStaticPaths() {
     const paths = surahs.map((c) => {
-        return { params: { id: c.id.toString() } }; // Route is something like "this-is-my-post"
+        return {params: {id: c.id.toString()}}; // Route is something like "this-is-my-post"
     });
 
     return {
