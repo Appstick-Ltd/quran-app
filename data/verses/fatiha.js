@@ -4,7 +4,19 @@ const fatiha = [
         translations: {
             "en": "In the name of Allah, the Compassionate, the Merciful.",
             "bn": "শুরু করছি আল্লাহর নামে যিনি পরম করুণাময়, অতি দয়ালু।"
-        }
+        },
+        words: [
+            {
+                ar: "ِب",
+                en: "of, with, by, in",
+                bn: "এর, সঙ্গে, দ্বারা, মধ্যে"
+            },
+            {
+                ar: "اِسْمٌ",
+                en: "Name",
+                bn: "নাম"
+            }
+        ]
     },
     {
         verse: "الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ",
