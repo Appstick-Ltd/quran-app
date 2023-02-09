@@ -1,10 +1,11 @@
 import Link from "next/link";
-import {Checkbox, Modal} from "antd";
+import {Checkbox, Modal, QRCode} from "antd";
 import {useState} from "react";
 import {useSettingsContext} from "../../context/settings";
 
 const Header = () => {
     const [show, setShow] = useState(false)
+    const [show2, setShow2] = useState(false)
     const {settings, setSettings} = useSettingsContext()
 
     const handleWordPronunciationUpdate = (lang, value) => {
@@ -62,7 +63,8 @@ const Header = () => {
                             <h4 className="text-lg font-medium text-gray-700">Quran</h4>
                         </Link>
                         <div className="flex">
-                            <a role="button" onClick={() => setShow(true)}>Settings</a>
+                            <a role="button" className="text-gray-600 mr-4" onClick={() => setShow2(true)}>Share</a>
+                            <a role="button" className="text-gray-600" onClick={() => setShow(true)}>Settings</a>
                         </div>
                     </div>
                 </div>
@@ -93,6 +95,9 @@ const Header = () => {
                         Verse Translation in English
                     </Checkbox>
                 </div>
+            </Modal>
+            <Modal open={show2} onCancel={() => setShow2(false)} width={350} title="Scan Qr" footer={null}>
+                <QRCode value={typeof window !== "undefined" ? window?.location?.hostname : ""} size={300}/>
             </Modal>
         </>
 
